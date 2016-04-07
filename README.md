@@ -3,7 +3,6 @@ go-check-plugins
 
 Check Plugins for monitoring written in golang.
 
-
 Documentation for each plugin is located in its respective sub directory.
 
 * [check-cert-file](./check-cert-file/README.md)
