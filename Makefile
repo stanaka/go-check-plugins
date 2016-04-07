@@ -1,6 +1,10 @@
 TARGET_OSARCH="linux/amd64"
+CURRENT_VERSION = $(shell git log --merges --oneline | perl -ne 'if(m/^.+Merge pull request \#[0-9]+ from .+\/bump-version-([0-9\.]+)/){print $$1;exit}')
 
-all: clean test build rpm deb
+check-variables:
+	echo "CURRENT_VERSION: ${CURRENT_VERSION}"
+
+all: clean test build
 
 test: lint
 	go test $(TESTFLAGS) ./...
@@ -10,7 +14,6 @@ deps:
 
 devel-deps: deps
 	go get github.com/golang/lint/golint
-	go get golang.org/x/tools/cmd/vet
 	go get github.com/pierrre/gotestcover
 	go get github.com/mattn/goveralls
 
@@ -32,10 +35,14 @@ build: deps
 	    github.com/mackerelio/go-check-plugins/$$i; \
 	done
 
-rpm: build
-	rpmbuild --define "_sourcedir `pwd`" -ba packaging/rpm/mackerel-check-plugins.spec
+rpm:
+	TARGET_OSARCH="linux/386" make build
+	rpmbuild --define "_sourcedir `pwd`"  --define "_version ${CURRENT_VERSION}" --define "buildarch noarch" -bb packaging/rpm/mackerel-check-plugins.spec
+	TARGET_OSARCH="linux/amd64" make build
+	rpmbuild --define "_sourcedir `pwd`"  --define "_version ${CURRENT_VERSION}" --define "buildarch x86_64" -bb packaging/rpm/mackerel-check-plugins.spec
 
-deb: build
+deb:
+	TARGET_OSARCH="linux/386" make build
 	cp build/check-* packaging/deb/debian/
 	cd packaging/deb && debuild --no-tgz-check -rfakeroot -uc -us
 
@@ -45,8 +52,5 @@ clean:
 	  rmdir build; \
 	fi
 	go clean
-
-release:
-	tool/releng
 
 .PHONY: all test deps devel-deps lint cover build rpm deb clean release
