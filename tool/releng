@@ -37,7 +37,7 @@ use Getopt::Long;
 use File::Basename;
 
 chomp(my $REPO_NAME = `git rev-parse --show-toplevel`);
-$REPO_NAME =~ s|^.+/(\w+/\w+)$|$1|;
+$REPO_NAME =~ s|^.+/([^/]+/[^/]+)$|$1|;
 my $dry_run;
 my $verbose;
 my $next_version;
