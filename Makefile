@@ -32,7 +32,7 @@ build: deps
 	for i in check-*; do \
 	  gox -ldflags "-s -w" \
 	    -osarch=$(TARGET_OSARCH) -output build/$$i \
-	    `pwd | sed -e "s|$GOPATH/src/||"`/$$i; \
+	    `pwd | sed -e "s|${GOPATH}/src/||"`/$$i; \
 	done
 
 rpm:
