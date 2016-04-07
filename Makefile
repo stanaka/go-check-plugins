@@ -32,7 +32,7 @@ build: deps
 	for i in check-*; do \
 	  gox -ldflags "-s -w" \
 	    -osarch=$(TARGET_OSARCH) -output build/$$i \
-	    github.com/mackerelio/go-check-plugins/$$i; \
+	    $$i; \
 	done
 
 rpm:
