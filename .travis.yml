@@ -34,12 +34,12 @@ before_deploy:
 - git fetch --tags --depth=1000 || true
 deploy:
 - provider: script
-  script: script/releng --task=upload-to-github-release -v
+  script: tool/releng --task=upload-to-github-release -v
   skip_cleanup: true
   on:
     branch: master
 - provider: script
-  script: script/releng --task=create-pullrequest --current-branch=$TRAVIS_BRANCH -v
+  script: tool/releng --task=create-pullrequest --current-branch=$TRAVIS_BRANCH -v
   skip_cleanup: true
   on:
     all_branches: true
