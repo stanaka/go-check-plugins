@@ -35,7 +35,7 @@ build: deps
 	    `pwd | sed -e "s|${GOPATH}/src/||"`/$$i; \
 	done
 
-rpm: deps
+rpm: clean test build
 	TARGET_OSARCH="linux/386" make build
 	rpmbuild --define "_sourcedir `pwd`"  --define "_version ${CURRENT_VERSION}" --define "buildarch noarch" -bb packaging/rpm/mackerel-check-plugins.spec
 	TARGET_OSARCH="linux/amd64" make build
