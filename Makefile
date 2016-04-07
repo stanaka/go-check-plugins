@@ -35,13 +35,13 @@ build: deps
 	    `pwd | sed -e "s|${GOPATH}/src/||"`/$$i; \
 	done
 
-rpm:
+rpm: deps
 	TARGET_OSARCH="linux/386" make build
 	rpmbuild --define "_sourcedir `pwd`"  --define "_version ${CURRENT_VERSION}" --define "buildarch noarch" -bb packaging/rpm/mackerel-check-plugins.spec
 	TARGET_OSARCH="linux/amd64" make build
 	rpmbuild --define "_sourcedir `pwd`"  --define "_version ${CURRENT_VERSION}" --define "buildarch x86_64" -bb packaging/rpm/mackerel-check-plugins.spec
 
-deb:
+deb: deps
 	TARGET_OSARCH="linux/386" make build
 	cp build/check-* packaging/deb/debian/
 	cd packaging/deb && debuild --no-tgz-check -rfakeroot -uc -us
