@@ -33,6 +33,8 @@ before_deploy:
 - git fetch --depth=1000
 - git fetch --tags --depth=1000 || true
 - make check-variables
+- go env
+- pwd
 - make lint
 - make cover
 - make all
