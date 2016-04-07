@@ -4,7 +4,7 @@ CURRENT_VERSION = $(shell git log --merges --oneline | perl -ne 'if(m/^.+Merge p
 check-variables:
 	echo "CURRENT_VERSION: ${CURRENT_VERSION}"
 
-all: clean test build
+all: clean test build rpm deb
 
 test: lint
 	go test $(TESTFLAGS) ./...
