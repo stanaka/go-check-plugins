@@ -1,3 +1,17 @@
+mackerel-check-plugins (0.5.4-1) stable; urgency=low
+
+  * update releng (by stanaka)
+    <https://github.com/stanaka/go-check-plugins/pull/3>
+
+ -- mackerel <mackerel-developers@hatena.ne.jp>  Fri, 08 Apr 2016 00:58:44 +0000
+
+mackerel-check-plugins (0.5.4-1) stable; urgency=low
+
+  * update releng (by stanaka)
+    <https://github.com/stanaka/go-check-plugins/pull/3>
+
+ -- travis@localhost <travis@localhost>  Fri, 08 Apr 2016 00:21:18 +0000
+
 mackerel-check-plugins (0.5.2-1) stable; urgency=low
 
   * Revert "use /usr/bin/check-*" (by Songmu)
