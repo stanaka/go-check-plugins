@@ -45,6 +45,9 @@ done
 %{__oldtargetdir}/*
 
 %changelog
+* Fri Apr 08 2016 <mackerel-developers@hatena.ne.jp> - 0.5.4-1
+- update releng (by stanaka)
+
 * Fri Apr 08 2016 <travis@localhost> - 0.5.4-1
 - update releng (by stanaka)
 
