@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.4 (2016-04-08)
+
+* update releng #3 (stanaka)
+
+
 ## 0.5.2 (2016-03-25)
 
 * Revert "use /usr/bin/check-*" #95 (Songmu)

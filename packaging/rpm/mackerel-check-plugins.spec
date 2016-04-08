@@ -45,6 +45,9 @@ done
 %{__oldtargetdir}/*
 
 %changelog
+* Fri Apr 08 2016 <travis@localhost> - 0.5.4-1
+- update releng (by stanaka)
+
 * Fri Mar 25 2016 <y.songmu@gmail.com> - 0.5.2
 - Revert "use /usr/bin/check-*" (by Songmu)
 
