@@ -1,4 +1,4 @@
-mkr (0.5.4-1) stable; urgency=low
+mackerel-check-plugins (0.5.4-1) stable; urgency=low
 
   * update releng (by stanaka)
     <https://github.com/stanaka/go-check-plugins/pull/3>

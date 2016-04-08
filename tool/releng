@@ -11,7 +11,8 @@ Release Engineering script for mackerel related packages.
         --task=<task>            # 'create-pullrequest' or 'github-release'
         --next-version=<version> # specify next version. if not specified, a
                                  # value derived from the branch name is used.
-        --package-name=<name>    # target package name.
+        --package-name=<name>    # target package name. if not specified,
+                                 # the repository name is used.
         --verbose
         --dry-run
 
@@ -276,8 +277,10 @@ sub parse_version {
 sub update_changelog {
     my ($next_version, @releases) = @_;
 
-    chomp(my $email = `git config user.email`);
-    chomp(my $name  = `git config user.name`);
+    my $email = 'mackerel-developers@hatena.ne.jp';
+    my $name = 'mackerel';
+    #chomp(my $email = `git config user.email`);
+    #chomp(my $name  = `git config user.name`);
 
     my $old_locale = setlocale(LC_TIME);
     setlocale(LC_TIME, "C");
@@ -452,7 +455,8 @@ $0
   --task=<task>            # 'create-pullrequest' or 'github-release'
   --next-version=<version> # specify next version. if not specified, a
                            # value derived from the branch name is used.
-  --package-name=<name>    # target package name.
+  --package-name=<name>    # target package name. if not specified,
+                           # the repository name is used.
   --verbose
   --dry-run
 EOS
