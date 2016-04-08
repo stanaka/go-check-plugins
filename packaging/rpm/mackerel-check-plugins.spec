@@ -45,6 +45,9 @@ done
 %{__oldtargetdir}/*
 
 %changelog
+* Fri Apr 08 2016 <mackerel-developers@hatena.ne.jp> - 0.5.6-1
+- update README.md (by stanaka)
+
 * Fri Apr 08 2016 <mackerel-developers@hatena.ne.jp> - 0.5.5-1
 - update README.md (by stanaka)
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.6 (2016-04-08)
+
+* update README.md #7 (stanaka)
+
+
 ## 0.5.5 (2016-04-08)
 
 * update README.md #5 (stanaka)
